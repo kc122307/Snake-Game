@@ -18,16 +18,6 @@ An advanced, multi-level Snake Game built with vanilla JavaScript, HTML, and CSS
 - 🎨 **Beautiful UI**: Smooth animations, gradients, and clean design.
 
 
-## 🚀 Getting Started
-
-### Clone the Repository
-
-``bash
-git clone https://github.com/kc122307/Snake-Game.git
-cd Snake-Game
-
-
-
 ## 🛠️ Technologies Used
 
 - **HTML5**
@@ -50,3 +40,15 @@ cd Snake-Game
 - 🎮 **Difficulty Modes**: Choose your challenge level.
 - 🏆 **Achievements**: Get notified for reaching milestones.
 - 🍎 **Power-ups & Obstacles**: Apples, Bananas, Bombs, and more surprises!
+
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+``bash
+git clone https://github.com/kc122307/Snake-Game.git
+cd Snake-Game
+
+
+
