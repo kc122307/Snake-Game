@@ -22,9 +22,11 @@ An advanced, multi-level Snake Game built with vanilla JavaScript, HTML, and CSS
 
 ### Clone the Repository
 
-```bash
+``bash
 git clone https://github.com/kc122307/Snake-Game.git
 cd Snake-Game
+
+
 
 ## 🛠️ Technologies Used
 
