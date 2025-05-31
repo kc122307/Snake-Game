@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+  <div class="game-container">
+    <!-- Main Menu -->
+    <div id="mainMenu" class="menu-screen">
+      <h1 class="title">🐍 Ultimate Snake</h1>
+      <button class="menu-button level-button" onclick="showLevelSelect()">🎮 Play Game</button>
+      <button class="menu-button theme-button" onclick="showThemeSelect()">🎨 Themes</button>
+      <button class="menu-button settings-button" onclick="showSettings()">⚙️ Settings</button>
+      <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+        Use Arrow Keys or Swipe to Control
+      </div>
+    </div>
+
+    <!-- Level Select -->
+    <div id="levelSelect" class="menu-screen" style="display:none;">
+      <h2>Select Difficulty</h2>
+      <button class="menu-button level-button" onclick="startGame('easy')">🐌 Easy (Slow & Peaceful)</button>
+      <button class="menu-button level-button" onclick="startGame('medium')">🚀 Medium (Normal Speed)</button>
+      <button class="menu-button level-button" onclick="startGame('hard')">⚡ Hard (Fast Pace)</button>
+      <button class="menu-button level-button" onclick="startGame('extreme')">💀 Extreme (Nightmare Mode)</button>
+      <button class="menu-button settings-button" onclick="showMainMenu()">← Back</button>
+    </div>
+
+    <!-- Theme Select -->
+    <div id="themeSelect" class="menu-screen" style="display:none;">
+      <h2>Choose Theme</h2>
+      <button class="menu-button theme-button" onclick="setTheme('light')">☀️ Light Theme</button>
+      <button class="menu-button theme-button" onclick="setTheme('dark')">🌙 Dark Theme</button>
+      <button class="menu-button theme-button" onclick="setTheme('neon')">⚡ Neon Theme</button>
+      <button class="menu-button settings-button" onclick="showMainMenu()">← Back</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="game-screen" style="display:none;">
+      <div class="game-stats">
+        <div class="stat-item">Score: <span id="scoreDisplay">0</span></div>
+        <div class="stat-item">Length: <span id="lengthDisplay">1</span></div>
+        <div class="stat-item">Level: <span id="levelDisplay">1</span></div>
+        <div class="stat-item">Lives: <span id="livesDisplay">3</span></div>
+        <div class="stat-item">High Score: <span id="highScoreDisplay">0</span></div>
+      </div>
+      
+      <div class="progress-bar">
+        <div class="progress-fill" id="levelProgress" style="width: 0%"></div>
+      </div>
+
+      <div class="power-ups">
+        <div class="power-up">
+          <div class="power-icon apple"></div>
+          <span>Apple +2</span>
+        </div>
+        <div class="power-up">
+          <div class="power-icon banana"></div>
+          <span>Banana +1</span>
+        </div>
+        <div class="power-up">
+          <div class="power-icon bomb"></div>
+          <span>💀 Death</span>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+      
+      <div style="margin-top: 15px;">
+        <button class="control-button" onclick="pauseGame()">⏸️ Pause</button>
+        <button class="control-button" onclick="showMainMenu()">🏠 Home</button>
+      </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div class="pause-screen" id="pauseScreen">
+      <h1>⏸️ Paused</h1>
+      <button class="control-button" onclick="resumeGame()">▶️ Resume</button>
+      <button class="control-button" onclick="restartCurrentGame()">🔄 Restart</button>
+      <button class="control-button" onclick="showMainMenu()">🏠 Main Menu</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div class="game-over" id="gameOverScreen">
+      <h1>💀 Game Over</h1>
+      <p style="font-size: 1.5rem; margin: 20px 0;">
+        Final Score: <span id="finalScoreDisplay">0</span>
+      </p>
+      <p id="newHighScore" style="color: #ffd43b; font-size: 1.2rem; display: none;">
+        🎉 New High Score! 🎉
+      </p>
+      <button class="control-button" onclick="restartCurrentGame()">🔄 Play Again</button>
+      <button class="control-button" onclick="showMainMenu()">🏠 Main Menu</button>
+    </div>
+
+    <!-- Settings Screen -->
+    <div class="settings-screen" id="settingsScreen" style="display:none;">
+      <h1>⚙️ Settings</h1>
+      <div style="margin: 20px 0;">
+        <label style="display: block; margin: 10px 0;">
+          <input type="checkbox" id="soundToggle" checked> 🔊 Sound Effects
+        </label>
+        <label style="display: block; margin: 10px 0;">
+          <input type="checkbox" id="particlesToggle" checked> ✨ Particle Effects
+        </label>
+        <label style="display: block; margin: 10px 0;">
+          <input type="checkbox" id="screenShakeToggle" checked> 📳 Screen Shake
+        </label>
+      </div>
+      <button class="control-button" onclick="showMainMenu()">← Back</button>
+    </div>
+
+    <!-- Achievement Notification -->
+    <div class="achievement" id="achievementNotification">
+      <div id="achievementText">Achievement Unlocked!</div>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>
